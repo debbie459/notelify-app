@@ -1,0 +1,36 @@
+ <div class="max-w-2xl mx-auto px-4" style="width: 100%;">
+    
+    <form class=" flex flex-col " style="width: 100%;">
+        <div class="py-2 px-4 mb-8  rounded-lg border border-gray-200 dark:border-slate-300 dark:bg-gray-50" id="form-stuff" style="width: 100%;">
+            <input [(ngModel)]="noteService.noteTitle" name="title" id="title-input" class="px-0 w-full text-lg text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-black dark:placeholder-gray-900  mb-4 dark:bg-gray-50"  placeholder="Note Title" maxlength="150" style="word-wrap: break-word; overflow-wrap: break-word;" />
+            <textarea [(ngModel)]="noteService.noteContent" name="content" id="comment" rows="6" class="px-0 w-full text-sm text-slate-900 border-0 focus:ring-0 focus:outline-none dark:text-black dark:placeholder-slate-900 dark:bg-gray-50" placeholder="Write a note" required></textarea>
+        </div>
+        <button type="submit" (click)="noteService.addNote()" class="inline-flex items-center justify-center py-2.5 px-4 text-xs w-3/6 text-center text-white rounded-lg bg-indigo-900 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 mx-auto">
+            Save Note
+        </button>
+    </form>
+</div>
+
+<div class="mx-auto container py-20 px-6">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+        <div *ngFor="let notess of noteService.notes; index as i">
+            <a [routerLink]="['/note-items', notess.id]">
+                <div class="rounded">
+                    <div class="w-full h-64 flex flex-col justify-between dark:bg-purple-500 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
+                        <div>
+                            <h4 class="text-gray-800 dark:text-gray-100 font-bold mb-3">{{notess.title}}</h4>
+                            <p class="text-gray-800 dark:text-gray-100 text-sm overflow-hidden overflow-ellipsis" style="max-height: 4rem;">{{notess.content}}</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-gray-800 dark:text-gray-100">
+                                <p class="text-sm">{{notess.date | date: 'dd.MM.yyyy'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
