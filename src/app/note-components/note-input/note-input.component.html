@@ -17,9 +17,9 @@
             <a [routerLink]="['/note-items', notess.id]">
                 <div class="rounded">
                     <div class="w-full h-64 flex flex-col justify-between dark:bg-purple-500 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
-                        <div>
+                        <div class="overflow-ellipsis overflow-hidden">
                             <h4 class="text-gray-800 dark:text-gray-100 font-bold mb-3">{{notess.title}}</h4>
-                            <p class="text-gray-800 dark:text-gray-100 text-sm overflow-hidden overflow-ellipsis" style="max-height: 4rem;">{{notess.content}}</p>
+                            <p class="text-gray-800 dark:text-gray-100 text-sm sm:overflow-hidden overflow-ellipsis md:overflow-hidden overflow-ellipsis lg:overflow-hidden overflow-ellipsis" style="max-height: 4rem;">{{notess.content}}</p>
                         </div>
                         <div>
                             <div class="flex items-center justify-between text-gray-800 dark:text-gray-100">
