@@ -3,11 +3,11 @@
     <div class="flex justify-center items-start w-full">
         <div class="rounded-lg w-full sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2 dark:bg-gray-800 bg-white dark:border-gray-700 border border-gray-400 py-5 px-4">
             <div class="flex flex-col justify-between">
-                <div>
+                <div class="overflow-ellipsis overflow-hidden">
                     <h4 *ngIf="!editMode" class="text-gray-800 dark:text-gray-100 font-bold mb-3">{{note.title}}</h4>
                     <input *ngIf="editMode" [(ngModel)]="editTitle" name="title" id="title-input" class="px-0 w-full text-lg text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800 mb-4" placeholder="Note Title" maxlength="150" style="word-wrap: break-word; overflow-wrap: break-word;" />
-                    <p *ngIf="!editMode" class="text-gray-800 dark:text-gray-100 text-sm">{{note.content}}</p>
-                    <textarea *ngIf="editMode" [(ngModel)]="eidtContent" name="content" id="comment" rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a note" required></textarea>
+                    <textarea *ngIf="!editMode" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" rows="30">{{note.content}}</textarea>
+                    <textarea *ngIf="editMode" [(ngModel)]="eidtContent" name="content" id="comment" rows="30" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a note" required></textarea>
                 </div>
                 <div class="flex items-center justify-between mr-8 dark:text-gray-100">
                     <p class="text-sm">{{note.date | date: 'dd.MM.yy'}}</p>
